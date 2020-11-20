@@ -1,0 +1,71 @@
+{
+    "allData": [
+    {
+        "fullname": "kolya",
+        "phone": "89142354628",
+        "active": "true",
+        "snils": "4566465",
+        "oms": "546565465",
+        "national": "apps"
+    },
+    {
+        "fullname": "kola",
+        "phone": "89142354628",
+        "active": "true",
+        "snils": "4566465",
+        "oms": "546565465",
+        "national": "apps"
+    },
+    {
+        "fullname": "kolya",
+        "phone": "89142354628",
+        "active": "true",
+        "snils": "4566465",
+        "oms": "546565465",
+        "national": "apps"
+    },
+    {
+        "fullname": "kolya",
+        "phone": "89142354628",
+        "active": "true",
+        "snils": "4566465",
+        "oms": "546565465",
+        "national": "apps"
+    },
+    {
+        "fullname": "kolya",
+        "phone": "89142354628",
+        "active": "true",
+        "snils": "4566465",
+        "oms": "546565465",
+        "national": "apps"
+    }
+],
+"allANCET": [
+    {
+        "AncetUser": "kolya",
+        "SCORE": "89142354628"
+        
+    },
+    {
+        "AncetUser": "kolya",
+        "SCORE": "89142354628"
+        
+    },
+    {
+        "AncetUser": "kolya",
+        "SCORE": "89142354628"
+       
+    },
+    {
+        "AncetUser": "kolya",
+        "SCORE": "89142354628"
+       
+    },
+    {
+        "AncetUser": "kolya",
+        "SCORE": "89142354628"
+        
+    }
+]
+}
