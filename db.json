@@ -44,27 +44,27 @@
 "allANCET": [
     {
         "AncetUser": "kolya",
-        "SCORE": "89142354628"
+        "SCORE": "true"
         
     },
     {
         "AncetUser": "kolya",
-        "SCORE": "89142354628"
+        "SCORE": "false"
         
     },
     {
         "AncetUser": "kolya",
-        "SCORE": "89142354628"
+        "SCORE": "true"
        
     },
     {
         "AncetUser": "kolya",
-        "SCORE": "89142354628"
+        "SCORE": "false"
        
     },
     {
         "AncetUser": "kolya",
-        "SCORE": "89142354628"
+        "SCORE": "true"
         
     }
 ]

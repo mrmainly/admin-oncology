@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect , useContext} from 'react'
 import styled from 'styled-components'
-
+import axios from 'axios'
+import {ContextFilter} from '../contextFilter'
 const ContFilter = styled.div`
     display: flex;
     width: 25%;
@@ -43,14 +44,17 @@ const Item = styled.span`
 `
 
 const Filter = () => {
+    const { filterFalse } = useContext(ContextFilter);
     return (
         <ContFilter>
             <TitleBlock>Фильтр</TitleBlock>
             <ItemGroup>РЕЗУЛЬТАТ</ItemGroup>
             <MainDiv>
-                <Item>ВСЕ</Item>
-                <Item>Положительные</Item>
-                <Item>Отрицательные</Item>
+                <Item >ВСЕ</Item>
+                <Item >Положительные</Item>
+                <Item onClick={() => {
+                    filterFalse()
+                }}>Отрицательные</Item>
             </MainDiv>
         </ContFilter>
     )
