@@ -1,7 +1,7 @@
 import { Layout, Menu } from "antd";
 import React, { useState } from "react";
 import LeftPanel from "../components/LeftPanel";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/NavbarMain";
 import ChoiseUser from "../components/table/ChoiseUser";
 import ChoiseAncet from "../components/table/ChoiseAncet";
 import { Context } from "../context";

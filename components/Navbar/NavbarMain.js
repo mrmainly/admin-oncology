@@ -23,7 +23,7 @@ const Panel = styled.div`
 `;
 const PanelItem = styled.a`
   text-decoration: none;
-  color: #fff;
+  color:v #fff;
 `;
 const Navbar = () => {
   const phone = "89142354628";
