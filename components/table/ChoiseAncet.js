@@ -37,27 +37,44 @@ const ChoiseAncet = () => {
     {
       title: "ВЫЧЕСЛИТЬ РЕЗУЛЬТАТ",
       dataIndex: "SCORE",
-      key: "SCORE",
+      filters: [
+        {
+          text: 'true',
+          value: "true",
+        },
+        {
+          text: 'false',
+          value: "false",
+        },
+      ],
+      filterMultiple: false,
+      onFilter: (value, record) => record.SCORE.indexOf(value) === 0,
+      sorter: (a, b) => a.SCORE.length - b.SCORE.length,
+      sortDirections: ['descend', 'ascend'],
     },
-  
   ];
+  function onChange(pagination, filters, sorter, extra) {
+    console.log('params', pagination, filters, sorter, extra);
+  }
   const dataget = async () => {
     try {
      await axios.get("http://localhost:4200/AllANCET").then((res) => {
+       console.log('efwef', res.data)
         setData(res.data)
       });
     } catch (err) {
       console.log(err);
     }
   }
-  const filterFalse = async () => {
-   setData(
-      data.filter((datas) => {
-      return datas.SCORE == false
-    }))
-  }
+  // const filterFalse = async () => {
+    
+  //  setData(
+  //     data.filter((datas) => {
+  //     return datas.SCORE == false
+  //   }))
+  // }
   return (
-    <ContextFilter.Provider value={{filterFalse}}>
+    <ContextFilter.Provider>
     <Content
       className="site-layout-background"
       style={{
@@ -77,8 +94,8 @@ const ChoiseAncet = () => {
       <Button style={{backgroundColor: '#a8a8a8', float: "right"}} type="default" shape="round" icon={<DownloadOutlined />} size="average">
           ДОБАВИТЬ ПОЛЬЗОВАТЕЛЬ
         </Button>
-        <Filter data={data}/>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+        {/* <Filter /> */}
+      <Table rowSelection={rowSelection} columns={columns} dataSource={data} onChange={onChange}/>
     </Content>
     </ContextFilter.Provider>
   );

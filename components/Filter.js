@@ -45,6 +45,7 @@ const Item = styled.span`
 
 const Filter = () => {
     const { filterFalse } = useContext(ContextFilter);
+   
     return (
         <ContFilter>
             <TitleBlock>Фильтр</TitleBlock>
