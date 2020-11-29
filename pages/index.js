@@ -1,37 +1,80 @@
-import { Layout, Menu } from "antd";
-import React, { useState } from "react";
-import LeftPanel from "../components/LeftPanel";
-import Navbar from "../components/Navbar/NavbarMain";
-import ChoiseUser from "../components/table/ChoiseUser";
-import ChoiseAncet from "../components/table/ChoiseAncet";
-import { Context } from "../context";
-const { Header, Content } = Layout;
-const MainPanel = () => {
-  const [showUser, setShowUser] = useState(false);
-  const [showAncet, setShowAncet] = useState(false);
+import React, { useContext, useEffect, useState } from "react";
+import { Table, Layout, Button, Input } from "antd";
+import { DownloadOutlined } from '@ant-design/icons';
+import axios from "axios";
 
-  const openShowUser = () => {
-    setShowUser(true)
-    setShowAncet(false)
-  }
-  const openShowAncet = () => {
-    setShowAncet(true)
-    setShowUser(false)
-  }
+import LayoutMain from '../components/Layout/LayoutMain'
+const {Search} = Input;
+const { Header, Content } = Layout;
+
+const ChoiseUser = () => {
+  const [data, setData] = useState("");
+  useEffect(() => {
+    try {
+      axios.get("http://localhost:4200/AllData").then((res) => {
+        setData(res.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  });
+  const onSearch = value => console.log(value);
+  const columns = [
+    {
+      title: "НОМЕР ТЕЛЕФОНА",
+      dataIndex: "phone",
+      key: "phone",
+    },
+    {
+      title: "ФАМИЛИЯ ИМЯ ОТЧЕСТВО",
+      dataIndex: "fullname",
+      key: "fullname",
+    },
+    {
+      title: "АКТИВЕН",
+      dataIndex: "active",
+      key: "active",
+    },
+    {
+      title: "НОМЕР СНИЛС",
+      dataIndex: "snils",
+      key: "snils",
+    },
+    {
+      title: "НОМЕР ОМС",
+      dataIndex: "oms",
+      key: "oms",
+    },
+    {
+      title: "НАЦИОНАЛЬНОСТЬ",
+      dataIndex: "national",
+      key: "national",
+    },
+  ];
   return (
-    <Context.Provider value={{openShowAncet, openShowUser}}>
-      <Layout>
-        <Navbar />
-        <Layout>
-          <LeftPanel />
-          <Layout style={{ padding: "0 24px 24px" }}>
-            {showUser && <ChoiseUser />}
-            {showAncet && <ChoiseAncet />}
-          </Layout>
-        </Layout>
-      </Layout>
-    </Context.Provider>
+    <LayoutMain>
+    <Content
+      className="site-layout-background"
+      style={{
+        padding: 24,
+        margin: 0,
+        minHeight: 280,
+      }}
+    >
+         <Search
+      allowClear
+      enterButton="Добавить"
+      size="average"
+      onSearch={onSearch}
+      style={{width: '30%', marginBottom: 15}}
+    />
+      <Button style={{backgroundColor: '#a8a8a8', float: "right"}} type="default" shape="round" icon={<DownloadOutlined />} size="average">
+          ДОБАВИТЬ ПОЛЬЗОВАТЕЛЬ
+        </Button>
+      <Table columns={columns} dataSource={data} />
+    </Content>
+    </LayoutMain>
   );
 };
 
-export default MainPanel;
+export default ChoiseUser;

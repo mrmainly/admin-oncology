@@ -4,7 +4,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 import axios from "axios";
 import {ContextFilter} from '../../contextFilter'
 import "antd/dist/antd.css";
-import Filter from '../Filter'
+import LayoutMain from '../../components/Layout/LayoutMain'
 
 const {Search} = Input;
 const { Header, Content } = Layout;
@@ -19,10 +19,10 @@ const ChoiseAncet = () => {
   const onSearch = value => console.log(value);
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows); //пикнул чена после энчи наелся кончи
     },
     getCheckboxProps: record => ({
-      disabled: record.name === 'Disabled User', // Column configuration not to be checked
+      disabled: record.name === 'Disabled User', 
       name: record.name,
     }),
   };
@@ -74,6 +74,7 @@ const ChoiseAncet = () => {
   // }
   return (
     <ContextFilter.Provider>
+        <LayoutMain>
     <Content
       className="site-layout-background"
       style={{
@@ -96,6 +97,7 @@ const ChoiseAncet = () => {
         {/* <Filter /> */}
       <Table rowSelection={rowSelection} columns={columns} dataSource={data} onChange={onChange}/>
     </Content>
+    </LayoutMain>
     </ContextFilter.Provider>
   );
 };

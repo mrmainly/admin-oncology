@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import styled from "styled-components";
-import { Context } from "../context";
+import Link from 'next/link'
 const { Sider } = Layout;
 
 const Line = styled.div`
@@ -22,11 +22,8 @@ const MenuBlock = styled.div`
 
 
 const LeftPanel = () => {
-  const { openShowAncet, openShowUser } = useContext(Context);
   const [collapsed, setCollapsed] = useState(false)
-  useEffect(() => {
-    openShowUser()
-  }, [])
+  
   const onCollapse = (collapsed) => {
 
     setCollapsed(collapsed)
@@ -43,11 +40,9 @@ const LeftPanel = () => {
         <Menu.ItemGroup key="g1" title="АККАУНТЫ">
           <Menu.Item
             key="1"
-            onClick={() => {
-              openShowUser();   
-            }}
-          >
+          ><Link href="/">
             Пользователи
+            </Link>
           </Menu.Item>
           <Line />
         </Menu.ItemGroup>
@@ -76,11 +71,10 @@ const LeftPanel = () => {
         <Menu.ItemGroup key="g1" title="ОПРОС">
           <Menu.Item
             key="13"
-            onClick={() => {
-              openShowAncet();
-            }}
           >
+            <Link href="/Ancet/choiseAncet">
             Анкеты колоноскомии
+            </Link>
           </Menu.Item>
           <Menu.Item key="14">Анкеты легких</Menu.Item>
           <Menu.Item key="15">Анкеты молочной железы</Menu.Item>

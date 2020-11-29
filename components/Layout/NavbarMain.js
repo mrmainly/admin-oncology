@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Typography } from "antd";
+import {useRouter} from 'next/router'
 
 const { Header, Content } = Layout;
-
+const {Title} = Typography;
 const ContainerNavbar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,20 +26,30 @@ const PanelItem = styled.a`
   text-decoration: none;
   color:v #fff;
 `;
+
+const ulText = styled(Title)`
+    color: 'white';
+    @media (max-width: 768px) {
+     color: 'black';
+    }
+` 
 const Navbar = () => {
   const phone = "89142354628";
+  const router = useRouter()
   return (
       <Header className="header" style={{ backgroundColor: "#176887" }}>
         <div className="logo" />
         <Menu
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
           style={{ backgroundColor: "#176887" }}
+          theme="dark"
         >
-          <Menu.Item key="1" style={{ color: "yellow", fontSize: 20 }}>
+          <Menu.Item style={{ color: "yellow", fontSize: 20, cursor: 'text' }} onClick={() => {
+              router.push('/')
+          }}>
             Онкопоиск Саха
           </Menu.Item>
-          <Menu.Item key="1" style={{ color: "#fff", cursor: "text" }}>
+          <Menu.Item key="2" style={{ color: "#fff", cursor: "text" }}>
             ДОБРО ПОЖЛОВАТЬ &nbsp; {phone}
           </Menu.Item>
 
