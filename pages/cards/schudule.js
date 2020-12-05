@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import { Card, Layout } from 'antd';
-import SchuduleCard from '../../components/cards/SchuduleCard'
+import SchuduleCard from '../../constructor/SchuduleCards'
 import ActivationCard from '../../components/cards/ActivationCard'
 import InformationCard from '../../components/cards/InformationCard'
 const {Content} = Layout
